@@ -4,23 +4,23 @@ using namespace std;
 using byte = unsigned char;
 
 void positive_result(){
-    cout << "Фигура угрожает полю." << endl;
+    cout << "Р¤РёРіСѓСЂР° СѓРіСЂРѕР¶Р°РµС‚ РїРѕР»СЋ." << endl;
 }
 
 void negative_result(){
-    cout << "Фигура не угрожает полю." << endl;
+    cout << "Р¤РёРіСѓСЂР° РЅРµ СѓРіСЂРѕР¶Р°РµС‚ РїРѕР»СЋ." << endl;
 }
 
 pair <byte, byte> first_input(){
     byte a, b;
-    cout << "Введите координаты первой шахматной фигуры через пробел: " << endl;
+    cout << "Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ РїРµСЂРІРѕР№ С€Р°С…РјР°С‚РЅРѕР№ С„РёРіСѓСЂС‹ С‡РµСЂРµР· РїСЂРѕР±РµР»: " << endl;
     cin >> a >> b;
     return make_pair(a, b);
 }
 
 pair <byte, byte> second_input(){
     byte a, b;
-    cout << "Введите координаты второй шахматной фигуры через пробел: " << endl;
+    cout << "Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ РІС‚РѕСЂРѕР№ С€Р°С…РјР°С‚РЅРѕР№ С„РёРіСѓСЂС‹ С‡РµСЂРµР· РїСЂРѕР±РµР»: " << endl;
     cin >> a >> b;
     return make_pair(a, b);
 }
@@ -31,51 +31,43 @@ int main()
     using byte = unsigned char;
     pair <byte, byte> positionA;
     pair <byte, byte> positionB;
-    //про ладью
-    cout << "Введите координаты первой шахматной фигуры через пробел: " << endl;
-    cin >> positionA.first >> positionA.second;
-    cout << "Введите координаты второй шахматной фигуры через пробел: " << endl;
-    cin >> positionB.first >> positionB.second;
+    //РїСЂРѕ Р»Р°РґСЊСЋ
+    positionA = first_input();
+    positionB = second_input();
     if (positionA.first == positionB.first || positionA.second == positionB.second){
         positive_result();
     }
     else{
         negative_result();
     }
-    //про слона
-    cout << "Введите координаты первой шахматной фигуры через пробел: ";
-    cin >> positionA.first >> positionA.second;
-    cout << "Введите координаты второй шахматной фигуры через пробел: ";
-    cin >> positionB.first >> positionB.second;
+    //РїСЂРѕ СЃР»РѕРЅР°
+    positionA = first_input();
+    positionB = second_input();
     if ((abs(positionA.first - positionB.first) / abs(positionA.second - positionB.second)) == 1){
         positive_result();
     }
     else{
         negative_result();
     }
-//    про короля
-    cout << "Введите координаты первой шахматной фигуры через пробел: ";
-    cin >> positionA.first >> positionA.second;
-    cout << "Введите координаты второй шахматной фигуры через пробел: ";
-    cin >> positionB.first >> positionB.second;
+//    РїСЂРѕ РєРѕСЂРѕР»СЏ
+    positionA = first_input();
+    positionB = second_input();
     if ((positionA.first + 1 == positionB.first) || (positionA.first - 1 == positionB.first) || (positionA.second + 1 == positionB.second) || (positionA.second - 1 == positionB.second) || (positionB.second == positionA.first + 1) || (positionB.second == positionA.first - 1)){
         positive_result();
     }
     else{
         negative_result();
     }
-//    про ферзя
-    cout << "Введите координаты первой шахматной фигуры через пробел: ";
-    cin >> positionA.first >> positionA.second;
-    cout << "Введите координаты второй шахматной фигуры через пробел: ";
-    cin >> positionB.first >> positionB.second;
+//    РїСЂРѕ С„РµСЂР·СЏ
+    positionA = first_input();
+    positionB = second_input();
     if (((abs(positionA.first - positionB.first) / abs(positionA.second - positionB.second)) == 1 ) ||(positionA.first + 1 == positionB.first) || (positionA.first - 1 == positionB.first) || (positionA.second + 1 == positionB.second) || (positionA.second - 1 == positionB.second)){
         positive_result();
     }
     else{
         negative_result();
     }
-    //про пешку
+    //РїСЂРѕ РїРµС€РєСѓ
     positionA = first_input();
     positionB = second_input();
     cout << positionA.first << " " << positionA.second << endl;
