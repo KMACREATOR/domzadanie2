@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-using byte = unsigned char;
+//using byte = unsigned char;
 
 void positive_result(){
     cout << "Фигура угрожает полю." << endl;
@@ -11,26 +11,39 @@ void negative_result(){
     cout << "Фигура не угрожает полю." << endl;
 }
 
-pair <byte, byte> first_input(){
-    byte a, b;
+pair <int, int> first_input(){
+    int a = 0, b = 0;
     cout << "Введите координаты первой шахматной фигуры через пробел: " << endl;
     cin >> a >> b;
-    return make_pair(a, b);
+    if ((a > 0) && (b > 0) && (a <= 8) && (b <= 8)){
+        return make_pair(a, b);
+        }
+    else{
+        cout << "Некорректный ввод. Ошибка." << endl;
+        exit(0);
+    }
+
 }
 
-pair <byte, byte> second_input(){
-    byte a, b;
+pair <int, int> second_input(){
+   int a = 0, b = 0;
     cout << "Введите координаты второй шахматной фигуры через пробел: " << endl;
     cin >> a >> b;
-    return make_pair(a, b);
+    if ((a > 0) && (b > 0) && (a <= 8) && (b <= 8)){
+        return make_pair(a, b);
+        }
+    else{
+        cout << "Некорректный ввод. Ошибка." << endl;
+        exit(0);
+    }
+
 }
 
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    using byte = unsigned char;
-    pair <byte, byte> positionA;
-    pair <byte, byte> positionB;
+    pair <int, int> positionA;
+    pair <int, int> positionB;
     //про ладью
     positionA = first_input();
     positionB = second_input();
@@ -80,4 +93,3 @@ int main()
     }
     return 0;
 }
-
